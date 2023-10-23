@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Students;
 
 return new class extends Migration
 {
@@ -13,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('tbl_prestasi', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Students::class);
             $table->date('tglPrestasi');
             $table->string('namaPrestasi');
             $table->string('tingkatPrestasi');

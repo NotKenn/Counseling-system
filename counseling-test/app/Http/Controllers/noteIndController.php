@@ -53,7 +53,7 @@ class noteIndController extends Controller
 
         ModelsNoteIndividu::create($attributes);
 
-        return view('noteInd.index');
+        return redirect()->route('noteInd.index');
     }
     public function edit(string $id): View
     {

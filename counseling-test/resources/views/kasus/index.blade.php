@@ -5,7 +5,7 @@
 <div>
     <div class="alert alert-secondary mx-4" role="alert">
         <span class="text-white">
-            <strong>Add, Edit, and Remove Notes Data!</strong>
+            <strong>Add, Edit, and Remove Achievements!</strong>
         </span>
     </div>
 
@@ -15,7 +15,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">All Students</h5>
+                            <h5 class="mb-0">All Achievements</h5>
                         </div>
                         <div class="ms-md-3 pe-md-3 d-flex align-items-left">
                             <div class="input-group">
@@ -31,7 +31,7 @@
                                     tr = table.getElementsByTagName("tr")
 
                                     for(var i = 0; i < tr.length; i++){
-                                        td = tr[i].getElementsByTagName('td')[1];
+                                        td = tr[i].getElementsByTagName('td')[0];
                                         if(td){
                                             textvalue = td.textContent || td.innerText;
 
@@ -45,7 +45,7 @@
                                 }
                             </script>
                             </div>
-                        <a href="{{route('noteInd.create')}}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Note</a>
+                        <a href="{{route('kasus.create')}}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Note</a>
                     </div>
 
                 </div>
@@ -55,16 +55,16 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
-                                        Nama Pembimbing
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Nama Siswa
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
-                                        Tanggal Konseling
+                                        Tanggal Kasus
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
-                                        Jenis Konseling
+                                        Keterangan
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                        Penanganan
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Status
@@ -75,29 +75,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($notes as $note)
+                            @forelse ($kasus as $kas)
                                 <tr>
                                         <td class="ps-4 text-s font-weight-bold mb-0">
-                                            {{$note->user->namaUser}}
+                                            {{$kas->student->Nama}}
                                         </td>
-                                        <td class="ps-4 text-s font-weight-bold mb-0">
-                                            {{ $note->student->Nama }}
+                                        <td class="text-center text-s font-weight-bold mb-0">
+                                            {{ $kas->tglKasus }}
                                         </td>
                                         <td class="p-2 text-center text-s font-weight-bold mb-0">
-                                            {{ $note->tglKonseling }}
+                                            {{ $kas->penjelasan }}
                                         </td>
                                         <td class="text-center text-s font-weight-bold mb-0">
-                                            {{ $note->jenisKonseling }}
+                                            {{($kas->penanganan)}}
                                         </td>
                                         <td class="text-center text-s font-weight-bold mb-0">
-                                            {{ $note->status }}
+                                            {{($kas->status)}}
                                         </td>
                                         <td class="text-center ">
-                                            <a href="{{route('noteInd.edit', $note->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit Note">
+                                            <a href="{{route('kasus.edit', $kas->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit Achievement">
                                                 <i class="fas fa-user-edit text-secondary"></i>
                                             </a>
                                             <span>
-                                            <a href="{{route('noteInd.destroy', $note->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Remove Note">
+                                            <a href="{{route('kasus.destroy', $kas->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Remove Achievement">
                                                 <i class="cursor-pointer fas fa-trash text-secondary"></i>
                                             </a>
                                             </span>

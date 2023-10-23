@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class tblPrestasi extends Model
 {
     use HasFactory;
+    public $table = "tbl_prestasi";
+
     protected $fillable = [
         'NISN',
         'tglPrestasi',
@@ -16,4 +18,9 @@ class tblPrestasi extends Model
         'peringkatPrestasi'
     ];
     public $timestamps = false;
+
+    public function student()
+    {
+        return $this->belongsTo(Students::class, 'NISN', 'NISN');
+    }
 }

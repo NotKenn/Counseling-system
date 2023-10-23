@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class noteKelompok extends Model
 {
     use HasFactory;
+    public $table = "noteKelompok";
+
     protected $fillable =[
-        'NISN',
-        'konselor',
-        'targetKonseling',
+        'user_id',
+        'targetKonselingKelompok',
         'tglRencanaPelaksanaan',
         'materi',
-        'tglRealisasi',
+        'tglRealisasiPelaksanaan',
         'evaluasiProses',
         'evaluasiAkhir',
         'status',
@@ -23,4 +24,9 @@ class noteKelompok extends Model
         'descRTL'
     ];
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

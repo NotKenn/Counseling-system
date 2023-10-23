@@ -72,6 +72,12 @@ Route::resource('/users', App\Http\Controllers\RegisterController::class);
 Route::get('users/destroy/{id}', [\App\Http\Controllers\RegisterController::class, 'destroy'])->name('users.destroy');
 Route::resource('/noteInd', App\Http\Controllers\noteIndController::class);
 Route::get('noteInd/destroy/{id}', [\App\Http\Controllers\noteIndController::class, 'destroy'])->name('noteInd.destroy');
+Route::resource('/noteKel', App\Http\Controllers\noteKelController::class);
+Route::get('noteKel/destroy/{id}', [App\Http\Controllers\noteKelController::class, 'destroy'])->name('noteKel.destroy');
+Route::resource('/prestasi', App\Http\Controllers\prestasiController::class);
+Route::get('/prestasi/destroy/{id}', [App\Http\Controllers\prestasiController::class, 'destroy'])->name('prestasi.destroy');
+Route::resource('/kasus', App\Http\Controllers\kasusController::class);
+Route::get('/kasus/destroy/{id}', [App\Http\Controllers\kasusController::class, 'destroy'])->name('kasus.destroy');
 
 //Students Route
 Route::get('students', [\App\Http\Controllers\StudentsController::class, 'index'])->name('students.index');

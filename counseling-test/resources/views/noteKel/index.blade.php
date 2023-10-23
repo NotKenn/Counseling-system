@@ -5,7 +5,7 @@
 <div>
     <div class="alert alert-secondary mx-4" role="alert">
         <span class="text-white">
-            <strong>Add, Edit, and Remove Notes Data!</strong>
+            <strong>Add, Edit, and Remove Notes!</strong>
         </span>
     </div>
 
@@ -15,7 +15,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">All Students</h5>
+                            <h5 class="mb-0">All Notes</h5>
                         </div>
                         <div class="ms-md-3 pe-md-3 d-flex align-items-left">
                             <div class="input-group">
@@ -45,7 +45,7 @@
                                 }
                             </script>
                             </div>
-                        <a href="{{route('noteInd.create')}}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Note</a>
+                        <a href="{{route('noteKel.create')}}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Note</a>
                     </div>
 
                 </div>
@@ -57,17 +57,14 @@
                                     <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Nama Pembimbing
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
-                                        Nama Siswa
+                                    <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                        Tanggal Rencana
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
-                                        Tanggal Konseling
+                                        Tanggal Realisasi
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
-                                        Jenis Konseling
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
-                                        Status
+                                        Materi
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Action
@@ -75,29 +72,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($notes as $note)
+                            @forelse ($notesK as $note)
                                 <tr>
                                         <td class="ps-4 text-s font-weight-bold mb-0">
                                             {{$note->user->namaUser}}
                                         </td>
-                                        <td class="ps-4 text-s font-weight-bold mb-0">
-                                            {{ $note->student->Nama }}
+                                        <td class="text-center text-s font-weight-bold mb-0">
+                                            {{ $note->tglRencanaPelaksanaan }}
                                         </td>
                                         <td class="p-2 text-center text-s font-weight-bold mb-0">
-                                            {{ $note->tglKonseling }}
+                                            {{ $note->tglRealisasiPelaksanaan }}
                                         </td>
                                         <td class="text-center text-s font-weight-bold mb-0">
-                                            {{ $note->jenisKonseling }}
-                                        </td>
-                                        <td class="text-center text-s font-weight-bold mb-0">
-                                            {{ $note->status }}
+                                            {{ Str::limit($note->materi, 30, '...')}}
                                         </td>
                                         <td class="text-center ">
-                                            <a href="{{route('noteInd.edit', $note->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit Note">
+                                            <a href="{{route('noteKel.edit', $note->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit Note">
                                                 <i class="fas fa-user-edit text-secondary"></i>
                                             </a>
                                             <span>
-                                            <a href="{{route('noteInd.destroy', $note->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Remove Note">
+                                            <a href="{{route('noteKel.destroy', $note->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Remove Note">
                                                 <i class="cursor-pointer fas fa-trash text-secondary"></i>
                                             </a>
                                             </span>

@@ -43,9 +43,6 @@
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Status
                                         </th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Action
-                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,16 +64,6 @@
                                             </td>
                                             <td class="text-center text-xs font-weight-bold mb-0">
                                                 {{ $student->statusKeaktifanSiswa }}
-                                            </td>
-                                            <td class="text-center ">
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit Student">
-                                                    <i class="fas fa-user-edit text-secondary"></i>
-                                                </a>
-                                                <span>
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Remove Student">
-                                                    <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                                </a>
-                                                </span>
                                             </td>
                                     </tr>
                                 </tbody>
