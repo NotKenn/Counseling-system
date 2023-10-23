@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2023 at 09:59 PM
+-- Generation Time: Oct 23, 2023 at 09:55 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -76,7 +76,7 @@ CREATE TABLE `noteindividu` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `students_id` bigint(20) UNSIGNED NOT NULL,
   `konselingSebelumnya` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `isNew` varchar(225) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isNew` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jenisKonseling` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tglKonseling` date NOT NULL,
   `deskripsiMasalah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -92,8 +92,7 @@ CREATE TABLE `noteindividu` (
 --
 
 INSERT INTO `noteindividu` (`id`, `user_id`, `students_id`, `konselingSebelumnya`, `isNew`, `jenisKonseling`, `tglKonseling`, `deskripsiMasalah`, `tindakan`, `catatan`, `rencanaTindakLanjut`, `tglRTL`, `status`) VALUES
-(1, 6, 123456789, '-', 'Yes', 'Pribadi', '2023-10-12', '-', 'Yes', 'lkdskjaslkdja', 'Belum Ada', '2023-10-19', 'Selesai'),
-(2, 5, 123456789, '-', 'No', 'Akademik', '2023-10-24', '-', '-', '-', '-', '2023-10-15', 'Ongoing');
+(2, 1, 432432432, '-', 'Yes', 'Pribadi', '2023-10-25', '-', '-', '-', '-', '2023-10-25', 'Selesai');
 
 -- --------------------------------------------------------
 
@@ -166,29 +165,29 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `students` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `NISN` bigint(20) UNSIGNED DEFAULT NULL,
-  `Nama` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tempatLahir` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tglLahir` date DEFAULT NULL,
-  `noHP` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Alamat` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `statusKeaktifanSiswa` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namaAyah` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `noHPAyah` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pekerjaanAyah` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `alamatAyah` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `isAyahAlive` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namaIbu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `noHPIbu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pekerjaanIbu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `alamatIbu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `isIbuAlive` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `statusMaritalOrtu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `isTinggalBersamaOrtu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namaWali` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `noHPWali` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pekerjaanWali` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `alamatWali` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `NISN` bigint(20) UNSIGNED NOT NULL,
+  `Nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tempatLahir` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tglLahir` date NOT NULL,
+  `noHP` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `statusKeaktifanSiswa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `namaAyah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `noHPAyah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaanAyah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamatAyah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isAyahAlive` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `namaIbu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `noHPIbu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaanIbu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamatIbu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isIbuAlive` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `statusMaritalOrtu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isTinggalBersamaOrtu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `namaWali` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `noHPWali` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaanWali` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamatWali` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -196,7 +195,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `NISN`, `Nama`, `tempatLahir`, `tglLahir`, `noHP`, `Alamat`, `statusKeaktifanSiswa`, `namaAyah`, `noHPAyah`, `pekerjaanAyah`, `alamatAyah`, `isAyahAlive`, `namaIbu`, `noHPIbu`, `pekerjaanIbu`, `alamatIbu`, `isIbuAlive`, `statusMaritalOrtu`, `isTinggalBersamaOrtu`, `namaWali`, `noHPWali`, `pekerjaanWali`, `alamatWali`) VALUES
-(1, 123456789, 'Ken', 'Ken', '2010-01-01', '081234', 'Ken', 'Aktif', 'Kenn', '123132', 'Kenn', 'Kenn', 'Hidup', 'Kenn', '1234', 'Kenn', 'Kenn', 'Hidup', 'Nikah', 'Yes', '-', '-', '-', '-');
+(1, 432432432, 'dsasd', 'sdadfsa', '2023-10-18', '465465', 'fdsfds', 'Aktif', 'dsadsadsa', '4654', 'bmnb', 'bmnbmn', 'Hidup', 'vnb', '56456', 'dxhdx', 'xdhxd', 'Hidup', 'Nikah', 'Yes', '-', '-', '-', '-');
 
 -- --------------------------------------------------------
 
@@ -206,6 +205,7 @@ INSERT INTO `students` (`id`, `NISN`, `Nama`, `tempatLahir`, `tglLahir`, `noHP`,
 
 CREATE TABLE `tbl_kasus` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `NISN` bigint(20) UNSIGNED NOT NULL,
   `tglKasus` date NOT NULL,
   `penjelasan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `penanganan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -220,6 +220,7 @@ CREATE TABLE `tbl_kasus` (
 
 CREATE TABLE `tbl_prestasi` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `NISN` bigint(20) UNSIGNED NOT NULL,
   `tglPrestasi` date NOT NULL,
   `namaPrestasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tingkatPrestasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -245,8 +246,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `namaUser`, `username`, `role`, `password`) VALUES
-(5, 'Admin', 'Admin', 'Admin', '$2y$10$pBT9SHbcl/GoUEMLVhRT/u/ogm40ZIKEYyJubK7fI5nYbdAmhScSm'),
-(6, 'Konselor 1', 'konselor1', 'User', '$2y$10$T3Zb9BWh5H3u60PKwNSesem4aKO6NtKD7djxnHKMLZ7v1eNItw0fK');
+(1, 'admin', 'admin', 'Admin', '$2a$12$u10/WOZu1OWBcrlr2V7CIuoCnmDBEs.x5StW.K2rj19oVe0vXOiq2');
 
 --
 -- Indexes for dumped tables
@@ -270,14 +270,15 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `noteindividu`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `students_id` (`students_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`,`students_id`),
+  ADD KEY `fkNISN` (`students_id`);
 
 --
 -- Indexes for table `notekelompok`
 --
 ALTER TABLE `notekelompok`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `password_resets`
@@ -310,13 +311,15 @@ ALTER TABLE `students`
 -- Indexes for table `tbl_kasus`
 --
 ALTER TABLE `tbl_kasus`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `NISN` (`NISN`);
 
 --
 -- Indexes for table `tbl_prestasi`
 --
 ALTER TABLE `tbl_prestasi`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `NISN` (`NISN`);
 
 --
 -- Indexes for table `users`
@@ -344,7 +347,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `noteindividu`
 --
 ALTER TABLE `noteindividu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `notekelompok`
@@ -362,25 +365,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_kasus`
 --
 ALTER TABLE `tbl_kasus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_prestasi`
 --
 ALTER TABLE `tbl_prestasi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -390,8 +393,26 @@ ALTER TABLE `users`
 -- Constraints for table `noteindividu`
 --
 ALTER TABLE `noteindividu`
-  ADD CONSTRAINT `students_id` FOREIGN KEY (`students_id`) REFERENCES `students` (`NISN`),
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `fkNISN` FOREIGN KEY (`students_id`) REFERENCES `students` (`NISN`),
+  ADD CONSTRAINT `fkuserid` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `notekelompok`
+--
+ALTER TABLE `notekelompok`
+  ADD CONSTRAINT `FKUser` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `tbl_kasus`
+--
+ALTER TABLE `tbl_kasus`
+  ADD CONSTRAINT `fkNISNN` FOREIGN KEY (`NISN`) REFERENCES `students` (`NISN`);
+
+--
+-- Constraints for table `tbl_prestasi`
+--
+ALTER TABLE `tbl_prestasi`
+  ADD CONSTRAINT `nisnFK` FOREIGN KEY (`NISN`) REFERENCES `students` (`NISN`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
