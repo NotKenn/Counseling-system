@@ -102,6 +102,9 @@
                                             <a href="{{route('students.edit-step-one', $student->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit Student">
                                                 <i class="fas fa-user-edit text-secondary"></i>
                                             </a>
+                                            <a href="{{route('students.detail', $student->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Detail Student">
+                                                <i class="fas fa-address-card text-secondary"></i>
+                                            </a>
                                             <span>
                                             <a href="{{route('students.destroy', $student->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Remove Student">
                                                 <i class="cursor-pointer fas fa-trash text-secondary"></i>

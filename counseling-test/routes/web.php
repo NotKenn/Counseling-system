@@ -98,6 +98,7 @@ Route::post('students/edit-step-three-post/{id}', [\App\Http\Controllers\Student
 Route::get('students/edit-step-final/{id}', [\App\Http\Controllers\StudentsController::class, 'editStepFinal'])->name('students.edit-step-final');
 Route::post('students/edit-step-final-post/{id}', [\App\Http\Controllers\StudentsController::class, 'postEditStepFinal'])->name('students.edit-step-final-post');
 Route::get('students/destroy/{id}', [\App\Http\Controllers\StudentsController::class, 'destroy'])->name('students.destroy');
+Route::get('students/detail/{id}', [App\Http\Controllers\StudentsController::class, 'detail'])->name('students.detail');
 
 Route::get('users', [App\Http\Controllers\SessionsController::class, 'index'])->name('users.index');
 Route::resource('/user', \App\Http\Controllers\SessionsController::class);

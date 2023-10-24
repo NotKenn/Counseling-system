@@ -118,7 +118,7 @@
               <div class="bg-gradient-primary border-radius-lg h-100">
                 <img src="../assets/img/shapes/waves-white.svg" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
                 <div style="background-image:linear-gradient(to left, white, whitesmoke, white)"class="position-relative d-flex align-items-center justify-content-center h-100">
-                  <img class="w-100 position-relative z-index-2 pt-4" src="../assets/img/shapes/logoSekolah.png" alt="logoSekolah">
+                  <img class="w-100 position-relative z-index-2 pt-4" src="../assets/img/shapes/logo.png" alt="logo">
                 </div>
               </div>
             </div>

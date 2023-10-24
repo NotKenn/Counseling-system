@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Students;
-
+use App\Models\noteKelompok;
+use App\Models\noteIndividu;
+use App\Models\tblKasus;
+use App\Models\tblPrestasi;
+use Illuminate\Contracts\View\View as ViewView;
 use Illuminate\View\View;
 
 use Illuminate\Support\Facades\DB;
@@ -224,7 +228,7 @@ class StudentsController extends Controller
     }
     public function destroy($id): RedirectResponse
     {
-        
+
         //get post by ID
         $student = Students::findOrFail($id);
 
@@ -233,6 +237,15 @@ class StudentsController extends Controller
 
         //redirect to index
         return redirect()->route('students.index');
+    }
+    public function detail(string $id): ViewView
+    {
+        $student = Students::findOrFail($id);
+        $noteI = noteIndividu::get()->where('students_id', $student->NISN);
+        $kasus = tblKasus::get()->where('NISN', $student->NISN);
+        $prestasi = tblPrestasi::get()->where('NISN', $student->NISN);
+
+        return view('students.detail', compact('student','noteI', 'kasus', 'prestasi'));
     }
 
 }
