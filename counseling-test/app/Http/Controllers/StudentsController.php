@@ -247,5 +247,14 @@ class StudentsController extends Controller
 
         return view('students.detail', compact('student','noteI', 'kasus', 'prestasi'));
     }
+    //public function importCSV()
+    //{
+    //    import csv nnti disini D:
+    //}
+
+    //public function printPDF()
+    //{
+    //    nnti fungsi print pdf sini, pake DomPDF
+    //}
 
 }
