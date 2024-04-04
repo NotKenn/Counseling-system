@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 use Illuminate\Http\RedirectResponse;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class noteIndController extends Controller
@@ -113,5 +114,13 @@ class noteIndController extends Controller
 
         //redirect to index
         return redirect()->route('noteInd.index');
+    }
+    public function cetak_pdf()
+    {
+        $notes = ModelsNoteIndividu::all();
+        $students = Students::all();
+
+        $pdf = Pdf::loadview('noteInd.printNote',['notes'=>$notes, 'student'>$students])->setpaper('A4', 'Landscape');
+        return $pdf->stream('Data-Notes-Individuals.pdf');
     }
 }

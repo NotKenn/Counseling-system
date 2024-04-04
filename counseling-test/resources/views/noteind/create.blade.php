@@ -25,19 +25,30 @@
                                 <label>Konselor</label>
                                 <input type="number" class="form-control" value="{{auth()->user()->id}}" id="user_id"  name="user_id" readonly>
                             </div>
+
                             <div class="form-group">
                                 <label>Siswa</label>
+                            <select type="text" class="form-control" id="students_id" name="students_id">
+                                @foreach ($students as $student)
+                                    <option value ={{$student->NISN}}> {{$student->Nama}} </option>
+                                @endforeach
+                            </select>
 
-                                <select type="text" class="form-control" id="students_id" name="students_id">
-                                    @foreach ($students as $student)
-                                        <option value ={{$student->NISN}}> {{$student->Nama}} </option>
-                                    @endforeach
-                                </select>
                             </div>
-
+                            
                             <div class="form-group">
                                 <label for="description">Konseling Sebelumnya</label>
-                                <input type="text" class="form-control" id="konselingSebelumnya" name="konselingSebelumnya">
+                                
+                                @php 
+                                    // $nisn =  row('students_id').val();
+                                    $value = \App\Models\noteIndividu::get('konselingSebelumnya')->where('students_id', $student->NISN);
+                                @endphp
+                                    <select type="text" class="form-control" id="konselingSebelumnya" name="konselingSebelumnya">
+                                        @foreach ($notes as $note)
+                                            <option value={{$note->id}}> {{$note->tglKonseling}}, {{$note->student->Nama}} </option>
+                                        @endforeach
+                                            <option value = "-"> None <option>
+                                    </select>
                             </div>
 
                             <div class="form-group">

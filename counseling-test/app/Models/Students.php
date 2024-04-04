@@ -35,4 +35,6 @@ class Students extends Model
         'alamatWali',
     ];
     public $timestamps = false;
+    protected $dates = ['tglLahir'];
+
 }

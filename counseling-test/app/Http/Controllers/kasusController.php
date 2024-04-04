@@ -12,6 +12,8 @@ use App\Models\tblKasus;
 
 use App\Models\Students;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class kasusController extends Controller
 {
     public function index(): View
@@ -83,5 +85,12 @@ class kasusController extends Controller
 
         //redirect to index
         return redirect()->route('kasus.index');
+    }
+    public function cetak_pdf()
+    {
+        $kasus = tblKasus::all();
+
+        $pdf = Pdf::loadview('kasus.printPdf',['kasus'=>$kasus])->setpaper('A4', 'landscape');
+        return $pdf->stream();
     }
 }

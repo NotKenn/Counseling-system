@@ -110,7 +110,7 @@
                 <p class="mb-1 pt-2 text-bold">Welcome Back</p>
                 @auth()
                 <h5 class="font-weight-bolder">{{auth()->user()->namaUser}}<br></h5>
-                <p class="mb-5">Sistem Konseling Siswa <br> Sekolah Cerdas Mandiri Tabqha</p>
+                <p class="mb-5">Sistem Konseling Siswa <br> SMP Cerdas Mandiri Tabqha</p>
                 @endauth
               </div>
             </div>

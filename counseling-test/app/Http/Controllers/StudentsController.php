@@ -11,6 +11,9 @@ use App\Models\tblKasus;
 use App\Models\tblPrestasi;
 use Illuminate\Contracts\View\View as ViewView;
 use Illuminate\View\View;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Imports\StudentsImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Support\Facades\DB;
 
@@ -246,6 +249,34 @@ class StudentsController extends Controller
         $prestasi = tblPrestasi::get()->where('NISN', $student->NISN);
 
         return view('students.detail', compact('student','noteI', 'kasus', 'prestasi'));
+    }
+    public function cetak_pdf($id)
+    {
+        $students = Students::findOrFail($id);
+        $noteI = noteIndividu::get()->where('students_id', $students->NISN);
+        $kasus = tblKasus::get()->where('NISN', $students->NISN);
+        $prestasi = tblPrestasi::get()->where('NISN', $students->NISN);
+
+        $pdf = Pdf::loadview('students.printPDF',['students'=>$students,'noteI'=>$noteI,'prestasi'=>$prestasi,'kasus'=>$kasus])->setpaper('A4', 'landscape');
+        return $pdf->stream();
+    }
+    public function cetak_pdfAll()
+    {
+        $students = Students::all();
+
+        $pdf = Pdf::loadview('students.printAll',['students'=>$students])->setpaper('A4', 'landscape');
+        return $pdf->stream();
+    }
+    public function importStudents()
+    {
+        return view('students.import');
+    }
+    public function uploadStudents(Request $request)
+    {
+        // blm siap
+        Excel::import(new StudentsImport, $request->importExcel);
+        
+        return redirect('/students')->with('success', 'All good!');
     }
 
 }

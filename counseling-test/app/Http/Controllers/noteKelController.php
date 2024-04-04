@@ -1,17 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\noteKelompok;
-
 use App\Models\User;
-
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-
 use Illuminate\View\View;
-
 use Illuminate\Http\RedirectResponse;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class noteKelController extends Controller
@@ -106,5 +102,12 @@ class noteKelController extends Controller
 
         //redirect to index
         return redirect()->route('noteKel.index');
+    }
+    public function cetak_pdf()
+    {
+        $noteK = noteKelompok::all();
+
+        $pdf = Pdf::loadview('notekel.printPdf',['noteK'=>$noteK])->setpaper('A4', 'landscape');
+        return $pdf->stream();
     }
 }

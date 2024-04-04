@@ -11,6 +11,8 @@ use App\Models\tblPrestasi;
 
 use Illuminate\Http\RedirectResponse;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class prestasiController extends Controller
 {
     public function index(): View
@@ -82,5 +84,12 @@ class prestasiController extends Controller
 
         //redirect to index
         return redirect()->route('prestasi.index');
+    }
+    public function cetak_pdf()
+    {
+        $prestasi = tblPrestasi::all();
+
+        $pdf = Pdf::loadview('prestasi.printPdf',['prestasi'=>$prestasi])->setpaper('A4', 'landscape');
+        return $pdf->stream();
     }
 }
