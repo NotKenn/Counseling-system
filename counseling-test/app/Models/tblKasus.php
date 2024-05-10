@@ -15,6 +15,9 @@ class tblKasus extends Model
         'tglKasus',
         'penjelasan',
         'penanganan',
+        'kelas',
+        'penanganKasus',
+        'rencanaTindakLanjut',
         'status',
     ];
     public $timestamps = false;

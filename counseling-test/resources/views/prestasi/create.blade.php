@@ -31,6 +31,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="description">Kelas</label>
+                                <input type="text" class="form-control" id="kelas" name="kelas">
+                            </div>
+
+                            <div class="form-group">
                                 <label>Tanggal Partisipasi</label>
                                 <input type="date" class="form-control" id="tglPrestasi" name="tglPrestasi">
                             </div>

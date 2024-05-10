@@ -32,6 +32,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="description">Kelas</label>
+                                <input type="text" class="form-control" value="{{old('kelas', $prestasi->kelas)}}" id="kelas" name="kelas">
+                            </div>
+
+                            <div class="form-group">
                                 <label>Tanggal Partisipasi</label>
                                 <input type="date" class="form-control" value="{{old('tglPrestasi', $prestasi->tglPrestasi)}}" id="tglPrestasi" name="tglPrestasi">
                             </div>

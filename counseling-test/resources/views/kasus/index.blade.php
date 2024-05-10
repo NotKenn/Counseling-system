@@ -67,6 +67,15 @@
                                         Penanganan
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                        Kelas
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                        Penangan Kasus
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                        Rencana Tindak Lanjut
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Status
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
@@ -88,6 +97,15 @@
                                         </td>
                                         <td class="text-center text-s font-weight-bold mb-0">
                                             {{($kas->penanganan)}}
+                                        </td>
+                                        <td class="text-center text-s font-weight-bold mb-0">
+                                            {{($kas->kelas)}}
+                                        </td>
+                                        <td class="text-center text-s font-weight-bold mb-0">
+                                            {{($kas->penanganKasus)}}
+                                        </td>
+                                        <td class="text-center text-s font-weight-bold mb-0">
+                                            {{($kas->rencanaTindakLanjut)}}
                                         </td>
                                         <td class="text-center text-s font-weight-bold mb-0">
                                             {{($kas->status)}}

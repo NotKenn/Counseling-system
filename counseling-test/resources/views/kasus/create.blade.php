@@ -46,6 +46,21 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="description">Kelas</label>
+                                <input type="text" class="form-control" id="kelas" name="kelas">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Penangan Kasus</label>
+                                <input type="text" class="form-control" id="penanganKasus" name="penanganKasus">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Rencana Tindak Lanjut</label>
+                                <input type="text" class="form-control" id="rencanaTindakLanjut" name="rencanaTindakLanjut">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="description">Status</label>
                                 <select type="text" class="form-control" id="status" name="status">
                                     <option value="Selesai">Selesai</option>

@@ -47,33 +47,25 @@
                     <div class="card-body">
                         <table class="table table-bordered" style="table-layout: fixed">
                             <thead>
-                              <tr>
-                                <th scope="col">Nama Pembimbing</th>
+                              <tr>  
                                 <th scope="col">Nama Siswa</th>
-                                <th scope="col">Jenis Konseling</th>
-                                <th scope="col">Tanggal Konseling</th>
-                                <th scope="col">Deskripsi Masalah</th>
-                                <th scope="col">Tindakan</th>
-                                <th scope="col">Catatan</th>
-                                <th scope="col">Rencana Tindak Lanjut</th>
-                                <th scope="col">Tanggal RTL</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Kelas Siswa</th>
+                                <th scope="col">Tanggal Partisipasi</th>
+                                <th scope="col">Nama Kegiatan</th>
+                                <th scope="col">Tingkat Kegiatan</th>
+                                <th scope="col">Preingkat</th>
                               </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    @forelse ($noteI as $note)
+                                    @forelse ($prestasi as $pres)
                                     <tr>
-                                    <td>{{  $note->user->namaUser }}</td>
-                                    <td>{!! $note->student->Nama !!}</td>
-                                    <td>{!! $note->jenisKonseling !!}</td>
-                                    <td>{!! $note->tglKonseling !!}</td>
-                                    <td>{!! $note->deskripsiMasalah !!}</td>
-                                    <td>{!! $note->tindakan !!}</td>
-                                    <td>{!! $note->catatan !!}</td>
-                                    <td>{!! $note->rencanaTindakLanjut !!}</td>
-                                    <td>{!! $note->tglRTL !!}</td>
-                                    <td>{!! $note->status !!}</td>
+                                    <td>{!! $pres->student->Nama !!}</td>
+                                    <td>{!! $pres->jenisKonseling !!}</td>
+                                    <td>{!! $pres->tglKonseling !!}</td>
+                                    <td>{!! $pres->deskripsiMasalah !!}</td>
+                                    <td>{!! $pres->tindakan !!}</td>
+                                    <td>{!! $pres->catatan !!}</td>
                                     
                                     @empty
 

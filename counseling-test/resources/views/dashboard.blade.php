@@ -133,7 +133,7 @@
           <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
             <h5 class="text-white font-weight-bolder mb-4 pt-2">Guidebook</h5>
             <p class="text-white">Press Here to Learn how to use the App!</p>
-            <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="help.index">
+            <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="{{ asset('/assets/files/guidebook.pdf')}}" target="_blank" download>
               Read More
               <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
             </a>

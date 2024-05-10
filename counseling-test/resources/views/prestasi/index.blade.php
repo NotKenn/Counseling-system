@@ -57,6 +57,9 @@
                                     <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Nama Siswa
                                     </th>
+                                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                        Kelas Siswa
+                                    </th>
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Tanggal Partisipasi
                                     </th>
@@ -78,7 +81,10 @@
                             @forelse ($prestasi as $pres)
                                 <tr>
                                         <td class="ps-4 text-s font-weight-bold mb-0">
-                                            {{$pres->student->Nama}}
+                                            {{ $pres->student->Nama }}
+                                        </td>
+                                        <td class="ps-4 text-s font-weight-bold mb-0">
+                                            {{ $pres->kelas }}
                                         </td>
                                         <td class="text-center text-s font-weight-bold mb-0">
                                             {{ $pres->tglPrestasi }}

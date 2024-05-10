@@ -15,6 +15,7 @@ class tblPrestasi extends Model
         'tglPrestasi',
         'namaPrestasi',
         'tingkatPrestasi',
+        'kelas',
         'peringkatPrestasi'
     ];
     public $timestamps = false;

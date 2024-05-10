@@ -257,19 +257,50 @@ class StudentsController extends Controller
         $kasus = tblKasus::get()->where('NISN', $students->NISN);
         $prestasi = tblPrestasi::get()->where('NISN', $students->NISN);
 
-        $pdf = Pdf::loadview('students.printPDF',['students'=>$students,'noteI'=>$noteI,'prestasi'=>$prestasi,'kasus'=>$kasus])->setpaper('A4', 'landscape');
+        $pdf = Pdf::loadview('students.printPDF',['students'=>$students,'noteI'=>$noteI,'prestasi'=>$prestasi,'kasus'=>$kasus])
+        ->setpaper('A4', 'landscape')
+        ->set_options(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        
         return $pdf->stream();
     }
     public function cetak_pdfAll()
     {
         $students = Students::all();
 
-        $pdf = Pdf::loadview('students.printAll',['students'=>$students])->setpaper('A4', 'landscape');
+        $pdf = Pdf::loadview('students.printAll',['students'=>$students])
+        ->setpaper('A4', 'landscape')
+        ->set_option('isRemoteEnabled', TRUE);
         return $pdf->stream();
     }
     public function importStudents()
     {
         return view('students.import');
+    }
+    public function cetakKasus($id)
+    {
+        $students = Students::findOrFail($id);
+        $noteI = noteIndividu::get()->where('students_id', $students->NISN);
+        $kasus = tblKasus::get()->where('NISN', $students->NISN);
+        $prestasi = tblPrestasi::get()->where('NISN', $students->NISN);
+
+        $pdf = Pdf::loadview('students.printPDF',['students'=>$students,'noteI'=>$noteI,'prestasi'=>$prestasi,'kasus'=>$kasus])
+        ->setpaper('A4', 'landscape')
+        ->set_options(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        
+        return $pdf->stream();
+    }
+    public function cetakPres($id)
+    {
+        $students = Students::findOrFail($id);
+        $noteI = noteIndividu::get()->where('students_id', $students->NISN);
+        $kasus = tblKasus::get()->where('NISN', $students->NISN);
+        $prestasi = tblPrestasi::get()->where('NISN', $students->NISN);
+
+        $pdf = Pdf::loadview('students.printPDF',['students'=>$students,'noteI'=>$noteI,'prestasi'=>$prestasi,'kasus'=>$kasus])
+        ->setpaper('A4', 'landscape')
+        ->set_options(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        
+        return $pdf->stream();
     }
     public function uploadStudents(Request $request)
     {

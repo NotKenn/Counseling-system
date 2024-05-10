@@ -36,6 +36,9 @@ class kasusController extends Controller
             'tglKasus'          =>'required',
             'penjelasan'        =>'required',
             'penanganan'        =>'required',
+            'kelas'             =>'required',
+            'penanganKasus'     =>'required',
+            'rencanaTindakLanjut'=>'required',
             'status'            =>'required'
         ]);
 
@@ -58,6 +61,9 @@ class kasusController extends Controller
             'tglKasus'          =>'required',
             'penjelasan'        =>'required',
             'penanganan'        =>'required',
+            'kelas'             =>'required',
+            'penanganKasus'     =>'required',
+            'rencanaTindakLanjut'=>'required',
             'status'            =>'required'
         ]);
 
@@ -70,6 +76,9 @@ class kasusController extends Controller
                 'tglKasus'          =>$request->tglKasus,
                 'penjelasan'        =>$request->penjelasan,
                 'penanganan'        =>$request->penanganan,
+                'kelas'             =>$request->kelas,
+                'penanganKasus'     =>$request->penanganKasus,
+                'rencanaTindakLanjut'=>$request->rencanaTindakLanjut,
                 'status'            =>$request->status
         ]);
         //redirect to index

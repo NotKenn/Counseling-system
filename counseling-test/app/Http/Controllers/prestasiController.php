@@ -32,6 +32,7 @@ class prestasiController extends Controller
     {
         $attributes = request()->validate([
             'NISN'              =>'required',
+            'kelas'             =>'required',
             'tglPrestasi'       =>'required',
             'namaPrestasi'      =>'required',
             'tingkatPrestasi'   =>'required',
@@ -54,6 +55,7 @@ class prestasiController extends Controller
         //validate form
         $this->validate($request, [
             'NISN'              =>'required',
+            'kelas'             =>'required',
             'tglPrestasi'       =>'required',
             'namaPrestasi'      =>'required',
             'tingkatPrestasi'   =>'required',
@@ -66,6 +68,7 @@ class prestasiController extends Controller
             //update post without image
             $prestasi->update([
                 'NISN'              =>$request->NISN,
+                'kelas'             =>$request->kelas,
                 'tglPrestasi'       =>$request->tglPrestasi,
                 'namaPrestasi'      =>$request->namaPrestasi,
                 'tingkatPrestasi'   =>$request->tingkatPrestasi,
