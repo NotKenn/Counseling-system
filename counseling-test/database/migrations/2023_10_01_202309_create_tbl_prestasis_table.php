@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('tglPrestasi');
             $table->string('namaPrestasi');
             $table->string('tingkatPrestasi');
+            $table->string('kelas');
             $table->string('peringkatPrestasi');
         });
     }

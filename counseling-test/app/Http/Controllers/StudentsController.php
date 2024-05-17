@@ -283,7 +283,7 @@ class StudentsController extends Controller
         $kasus = tblKasus::get()->where('NISN', $students->NISN);
         $prestasi = tblPrestasi::get()->where('NISN', $students->NISN);
 
-        $pdf = Pdf::loadview('students.printPDF',['students'=>$students,'noteI'=>$noteI,'prestasi'=>$prestasi,'kasus'=>$kasus])
+        $pdf = Pdf::loadview('students.printK',['students'=>$students,'noteI'=>$noteI,'prestasi'=>$prestasi,'kasus'=>$kasus])
         ->setpaper('A4', 'landscape')
         ->set_options(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
         
@@ -296,7 +296,7 @@ class StudentsController extends Controller
         $kasus = tblKasus::get()->where('NISN', $students->NISN);
         $prestasi = tblPrestasi::get()->where('NISN', $students->NISN);
 
-        $pdf = Pdf::loadview('students.printPDF',['students'=>$students,'noteI'=>$noteI,'prestasi'=>$prestasi,'kasus'=>$kasus])
+        $pdf = Pdf::loadview('students.printP',['students'=>$students,'noteI'=>$noteI,'prestasi'=>$prestasi,'kasus'=>$kasus])
         ->setpaper('A4', 'landscape')
         ->set_options(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
         

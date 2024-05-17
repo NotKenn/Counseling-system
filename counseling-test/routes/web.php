@@ -107,7 +107,7 @@ Route::get('students/detail/{id}', [App\Http\Controllers\StudentsController::cla
 Route::get('students/printPDF/{id}', [\App\Http\Controllers\StudentsController::class, 'cetak_pdf'])->name('students.printPDF');
 Route::get('students/printAll', [\App\Http\Controllers\StudentsController::class, 'cetak_pdfAll'])->name('students.printAll');
 Route::get('students/printPrestasi/{id}', [\App\Http\Controllers\StudentsController::class, 'cetakPres'])->name('students.printP');
-Route::get('students/printKasus/}{id}', [\App\Http\Controllers\StudentsController::class, 'cetakKasus'])->name('students.printK');
+Route::get('students/printKasus/{id}', [\App\Http\Controllers\StudentsController::class, 'cetakKasus'])->name('students.printK');
 Route::get('students/import-students', [App\Http\Controllers\StudentsController::class,'importStudents'])->name('students.import');
 Route::post('students/upload-students', [App\Http\Controllers\StudentsController::class,'uploadStudents'])->name('students.upload');
 

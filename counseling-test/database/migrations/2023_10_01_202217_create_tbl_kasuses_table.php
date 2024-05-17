@@ -18,6 +18,8 @@ return new class extends Migration
             $table->date('tglKasus');
             $table->string('penjelasan');
             $table->string('penanganan');
+            $table->string('kelas');
+            $table->string('penanganKasus');
             $table->string('status');
         });
     }

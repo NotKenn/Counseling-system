@@ -53,7 +53,7 @@
                                 <th scope="col">Tanggal Partisipasi</th>
                                 <th scope="col">Nama Kegiatan</th>
                                 <th scope="col">Tingkat Kegiatan</th>
-                                <th scope="col">Preingkat</th>
+                                <th scope="col">Peringkat</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -61,11 +61,11 @@
                                     @forelse ($prestasi as $pres)
                                     <tr>
                                     <td>{!! $pres->student->Nama !!}</td>
-                                    <td>{!! $pres->jenisKonseling !!}</td>
-                                    <td>{!! $pres->tglKonseling !!}</td>
-                                    <td>{!! $pres->deskripsiMasalah !!}</td>
-                                    <td>{!! $pres->tindakan !!}</td>
-                                    <td>{!! $pres->catatan !!}</td>
+                                    <td>{!! $pres->kelas !!}</td>
+                                    <td>{!! $pres->tglPrestasi !!}</td>
+                                    <td>{!! $pres->namaPrestasi !!}</td>
+                                    <td>{!! $pres->tingkatPrestasi !!}</td>
+                                    <td>{!! $pres->peringkatPrestasi !!}</td>
                                     
                                     @empty
 

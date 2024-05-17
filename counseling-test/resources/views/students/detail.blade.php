@@ -27,6 +27,7 @@
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <br>
+                        <div>
                         <a style="float: right;" href = "{{route('students.printPDF', $student->id)}}" class = "btn btn-md btn-success mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-up" viewBox="0 0 16 16">
                                 <path d="M8.5 11.5a.5.5 0 0 1-1 0V7.707L6.354 8.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 7.707z"/>
@@ -34,6 +35,8 @@
                               </svg>
                             Export Counseling
                         </a>
+                    </div>
+                    <div>
                         <a style="float: right;" href = "{{route('students.printP', $student->id)}}" class = "btn btn-md btn-success mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-up" viewBox="0 0 16 16">
                                 <path d="M8.5 11.5a.5.5 0 0 1-1 0V7.707L6.354 8.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 7.707z"/>
@@ -41,6 +44,8 @@
                               </svg>
                             Export Prestasi
                         </a>
+                    </div>
+                        <div>
                         <a style="float: right;" href = "{{route('students.printK', $student->id)}}" class = "btn btn-md btn-success mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-up" viewBox="0 0 16 16">
                                 <path d="M8.5 11.5a.5.5 0 0 1-1 0V7.707L6.354 8.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 7.707z"/>
@@ -48,6 +53,7 @@
                               </svg>
                             Export Kasus
                         </a>
+                    </div>
                         <strong> Data Siswa </strong>
                         <table class="table table-bordered" style="table-layout: auto">
                             <thead>
@@ -149,46 +155,7 @@
                         </table>
                         <br>
                                         
-                                        @foreach ($prestasi as $no => $pres)
-                                        <p class="text-s font-weight-bold mb-0">
-                                            <strong>Prestasi {{++$no}}</strong> <br>
-                                            {{ $pres->namaPrestasi }}
-                                        </p>
-                                        <p class="text-s font-weight-bold mb-0">
-                                            <strong>Tingkat Prestasi</strong> <br>
-                                            {{ $pres->tingkatPrestasi }}
-                                        </p>
-                                        <p class="text-s font-weight-bold mb-0">
-                                            <strong>Peringkat Prestasi</strong> <br>
-                                            {{ $pres->peringkatPrestasi }}
-                                        </p>
-                                        @endforeach
-                                        @foreach ($kasus as $no => $kas)
-                                        <p class="text-s font-weight-bold mb-0">
-                                            <strong>Kasus {{++$no}}</strong> <br>
-                                            {{ $kas->penjelasan }}
-                                        </p>
-                                        @endforeach
-                                        @foreach ($noteI as $no => $note)
-                                        <p class="text-s font-weight-bold mb-0">
-                                            <strong>Konseling {{++$no}}</strong> <br>
-                                            {{ $note->jenisKonseling}}
-                                        </p>
-                                        <p class="text-s font-weight-bold mb-0">
-                                            <strong>Catatan</strong> <br>
-                                            {{ $note->catatan}}
-                                        </p>
-                                        <p class="text-s font-weight-bold mb-0">
-                                            <strong>Pembimbing</strong> <br>
-                                            {{ $note->user->namaUser }}
-                                        </p>
-                                        <p class="text-s font-weight-bold mb-0">
-                                            <strong>Catatan</strong> <br>
-                                            {{ $note->status }}
-                                        </p>
-                                        @endforeach
-
-                    </div>
+                                                            </div>
                 </div>
             </div>
         </div>
