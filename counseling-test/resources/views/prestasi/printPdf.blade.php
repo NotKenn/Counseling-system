@@ -26,6 +26,7 @@
                             <thead>
                               <tr>
                                 <th scope="col">Nama Siswa</th>
+                                <th scope="col">Kelas</th>
                                 <th scope="col">Tanggal Partisipasi</th>
                                 <th scope="col">Nama Kegiatan</th>
                                 <th scope="col">Tingkat Kegiatan</th>
@@ -37,6 +38,7 @@
                                     @forelse ($prestasi as $pres)
                                   <tr>
                                     <td>{!! $pres->student->Nama !!}</td>
+                                    <td>{!! $pres->kelas !!}</td>
                                     <td>{!! $pres->tglPrestasi !!}</td>
                                     <td>{!! $pres->namaPrestasi !!}</td>
                                     <td>{!! $pres->tingkatPrestasi !!}</td>

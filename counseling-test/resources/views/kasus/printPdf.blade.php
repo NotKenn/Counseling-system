@@ -26,6 +26,7 @@
                             <thead>
                               <tr>
                                 <th scope="col">Nama Siswa</th>
+                                <th scope="col">Kelas</th>
                                 <th scope="col">Tanggal Kasus</th>
                                 <th scope="col">Penjalasan</th>
                                 <th scope="col">Penanganan</th>
@@ -37,6 +38,7 @@
                                     @forelse ($kasus as $kas)
                                   <tr>
                                     <td>{!! $kas->student->Nama !!}</td>
+                                    <td>{!! $kas->kelas !!}</td>
                                     <td>{!! $kas->tglKasus !!}</td>
                                     <td>{!! $kas->penjelasan !!}</td>
                                     <td>{!! $kas->penanganan !!}</td>
