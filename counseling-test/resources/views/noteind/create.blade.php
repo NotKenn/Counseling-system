@@ -29,7 +29,10 @@
                             <div class="form-group">
                                 <label>Siswa</label>
                             <select type="text" class="form-control" id="students_id" name="students_id">
-                                @foreach ($students as $student)
+                                @php
+                                    $getStudent = \DB::table('students')->where('statusKeaktifanSiswa', '=', 'Aktif')->select('NISN', 'Nama')->get();
+                                @endphp
+                                @foreach ($getStudent as $student)
                                     <option value ={{$student->NISN}}> {{$student->Nama}} </option>
                                 @endforeach
                             </select>
@@ -41,7 +44,8 @@
                                 
                                 @php 
                                     // $nisn =  row('students_id').val();
-                                    $value = \App\Models\noteIndividu::get('konselingSebelumnya')->where('students_id', $student->NISN);
+                                    // $value = \App\Models\noteIndividu::get('konselingSebelumnya')->where('students_id', $student->NISN);
+
                                 @endphp
                                     <select type="text" class="form-control" id="konselingSebelumnya" name="konselingSebelumnya">
                                         @foreach ($notes as $note)

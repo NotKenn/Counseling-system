@@ -23,7 +23,7 @@
 	</style>
   
   <div class="col-lg-5 ms-auto mt-5 mt-lg-0" style="width:auto;height:auto;float:left">
-        <img height="128" width="112" src="..\public\assets\img\shapes\logo.png">
+        <img height="128" width="112" src="..\public\assets\img\shapes\logoTEC.png">
   </div>
   <br>
   <div>
