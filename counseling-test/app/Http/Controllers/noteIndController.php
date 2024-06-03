@@ -31,7 +31,7 @@ class noteIndController extends Controller
         $users = User::all();
         $students = Students::all();
         $notes = ModelsNoteIndividu::all();
-        $getStudent = \DB::table('students')->where('statusKeaktifanSiswa', '=', 'Aktif')->get('NISN');
+        // $getStudent = \DB::table('students')->where('statusKeaktifanSiswa', '=', 'Aktif')->get('NISN');
 
         return view('noteInd.create', compact('users', 'students', 'notes'));
     }

@@ -1,6 +1,8 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
+@auth
+@if(auth()->user()->role != "User")
 
 <div>
     <div class="alert alert-secondary mx-4" role="alert">
@@ -103,3 +105,5 @@
     </div>
 </div>
 @endsection
+@endif
+@endauth

@@ -33,7 +33,9 @@
       <li class="nav-item mt-2">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6"></h6>
       </li>
-      <li class="nav-item">
+      <li class="nav-item">@auth
+        @if(auth()->user()->role != "User")
+        
         <a class="nav-link {{ (Request::is('users') ? 'active' : '') }} " href="{{ url('users') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -52,6 +54,8 @@
             </div>
             <span class="nav-link-text ms-1">User Management</span>
         </a>
+        @endif
+        @endauth
       </li>
       </li>
       <li class="nav-item mt-2">
@@ -116,9 +120,13 @@
               </g>
             </svg>
           </div>
+          
+                                    
           <span class="nav-link-text ms-1">Konseling Kelompok</span>
         </a>
       </li>
+      @auth
+      @if(auth()->user()->role != "User")
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('prestasi') ? 'active' : '') }}" href="{{ url('prestasi') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -158,6 +166,8 @@
             </svg>
           </div>
           <span class="nav-link-text ms-1">Kasus Siswa</span>
+          @endif
+          @endauth
         </a>
       </li>
     </ul>

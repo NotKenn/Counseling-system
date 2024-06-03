@@ -69,9 +69,14 @@
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Status
                                     </th>
+                                    @auth
+                                    @if(auth()->user()->role != "User")
+                                    
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Action
                                     </th>
+                                    @endif
+                                    @endauth
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,6 +98,8 @@
                                             {{ $note->status }}
                                         </td>
                                         <td class="text-center ">
+                                            @auth
+                                            @if(auth()->user()->role != "User")
                                             <a href="{{route('noteInd.edit', $note->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit Note">
                                                 <i class="fas fa-user-edit text-secondary"></i>
                                             </a>
@@ -101,6 +108,8 @@
                                                 <i class="cursor-pointer fas fa-trash text-secondary"></i>
                                             </a>
                                             </span>
+                                            @endif
+                                            @endauth
                                         </td>
                                 @empty
 

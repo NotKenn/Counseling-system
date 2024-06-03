@@ -45,7 +45,11 @@
                                 }
                             </script>
                             </div>
-                        <a href="students/create-step-one" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Student</a>
+                            @auth
+                            @if(auth()->user()->role != "User")
+                            <a href="students/create-step-one" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Student</a>
+                            @endif
+                            @endauth
                     </div>
 
                 </div>
@@ -99,17 +103,25 @@
                                             {{ $student->statusKeaktifanSiswa }}
                                         </td>
                                         <td class="text-center ">
+                                            @auth
+                                            @if(auth()->user()->role != "User")
                                             <a href="{{route('students.edit-step-one', $student->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit Student">
                                                 <i class="fas fa-user-edit text-secondary"></i>
                                             </a>
+                                            @endif
+                                            @endauth
                                             <a href="{{route('students.detail', $student->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Detail Student">
                                                 <i class="fas fa-address-card text-secondary"></i>
                                             </a>
+                                            @auth
+                                            @if(auth()->user()->role != "User")
                                             <span>
                                             <a href="{{route('students.destroy', $student->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Remove Student">
                                                 <i class="cursor-pointer fas fa-trash text-secondary"></i>
                                             </a>
                                             </span>
+                                            @endif
+                                            @endauth 
                                         </td>
                                 @empty
 

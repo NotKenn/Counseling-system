@@ -36,5 +36,9 @@ class Students extends Model
     ];
     public $timestamps = false;
     protected $dates = ['tglLahir'];
-
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
+

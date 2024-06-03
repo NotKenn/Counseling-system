@@ -66,9 +66,14 @@
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Materi
                                     </th>
+                                    @auth
+                                    @if(auth()->user()->role != "User")
+                                    
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Action
                                     </th>
+                                    @endif
+                                    @endauth
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,6 +92,10 @@
                                             {{ Str::limit($note->materi, 30, '...')}}
                                         </td>
                                         <td class="text-center ">
+                                            @auth
+                                            @if(auth()->user()->role != "User")
+                                            <a href="students/create-step-one" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Student</a>
+                                            
                                             <a href="{{route('noteKel.edit', $note->id)}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit Note">
                                                 <i class="fas fa-user-edit text-secondary"></i>
                                             </a>
@@ -95,6 +104,8 @@
                                                 <i class="cursor-pointer fas fa-trash text-secondary"></i>
                                             </a>
                                             </span>
+                                            @endif
+                                            @endauth
                                         </td>
                                 @empty
 
