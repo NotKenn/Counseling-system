@@ -45,7 +45,7 @@
                                 }
                             </script>
                             </div>
-                        <a href="{{route('noteInd.create')}}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Note</a>
+                        <a href="{{route('noteind.step1')}}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Note</a>
                     </div>
 
                 </div>

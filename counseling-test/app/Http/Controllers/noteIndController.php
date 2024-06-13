@@ -26,14 +26,20 @@ class noteIndController extends Controller
 
         return view('noteInd.index', compact('notes', 'users', 'students'));
     }
-    public function create()
+    public function showStep1()
     {
-        $users = User::all();
-        $students = Students::all();
-        $notes = ModelsNoteIndividu::all();
-        // $getStudent = \DB::table('students')->where('statusKeaktifanSiswa', '=', 'Aktif')->get('NISN');
+        $students = Students::all(); // Mengambil semua data siswa
+        return view('noteInd.step1', compact('students'));
+    }
 
-        return view('noteInd.create', compact('users', 'students', 'notes'));
+    public function showStep2(Request $request)
+    {
+        $notes = ModelsNoteIndividu::all();
+        $studentId = $request->input('students_id');
+        $student = Students::get()->where('NISN', $studentId);
+        $previousNotes = ModelsNoteIndividu::where('students_id', $studentId)->orderBy('tglKonseling', 'desc')->get();
+        
+        return view('noteind.step2', compact('notes', 'student', 'previousNotes', 'studentId'));
     }
 
     public function store()
