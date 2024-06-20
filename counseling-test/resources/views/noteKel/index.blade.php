@@ -45,7 +45,11 @@
                                 }
                             </script>
                             </div>
+                            @auth
+                            @if(auth()->user()->role != "User")
                         <a href="{{route('noteKel.create')}}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Note</a>
+                            @endif
+                            @endauth
                     </div>
 
                 </div>
@@ -114,6 +118,8 @@
                             </tbody>
                         </table>
                         <br>
+                        @auth
+                        @if(auth()->user()->role != "User")
                             <a href = "{{route('notekel.printPdf')}}" style = "float:right; margin-right:1.5%;" class="btn bg-gradient-primary btn-sm mb-0" type="button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-up" viewBox="0 0 16 16">
                                     <path d="M8.5 11.5a.5.5 0 0 1-1 0V7.707L6.354 8.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 7.707z"/>
@@ -121,6 +127,8 @@
                                   </svg>
                                 Export to PDF
                             </a>
+                        @endif
+                        @endauth
                         <br>
                     </div>
                 </div>

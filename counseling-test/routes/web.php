@@ -71,18 +71,27 @@ Route::get('/register', [RegisterController::class, 'create']);
 Route::post('/register', [RegisterController::class, 'store']);
 Route::resource('/users', App\Http\Controllers\RegisterController::class)->except(['show']);
 Route::get('users/destroy/{id}', [\App\Http\Controllers\RegisterController::class, 'destroy'])->name('users.destroy');
+Route::get('users', [App\Http\Controllers\SessionsController::class, 'index'])->name('users.index');
+Route::resource('/user', \App\Http\Controllers\SessionsController::class);
+//Note Individu
 Route::resource('/noteInd', App\Http\Controllers\noteIndController::class)->except(['show']);
 Route::get('/noteInd-step1', [App\Http\Controllers\noteIndController::class, 'showStep1'])->name('noteind.step1');
 Route::post('/noteInd-step2', [App\Http\Controllers\noteIndController::class, 'showStep2'])->name('noteind.step2');
-Route::post('/noteInd-submit', [App\Http\Controllers\noteIndController::class, 'store']);
+Route::post('/noteInd-submit', [App\Http\Controllers\noteIndController::class, 'store'])->name('noteind.submit');
 Route::get('noteInd/destroy/{id}', [\App\Http\Controllers\noteIndController::class, 'destroy'])->name('noteInd.destroy');
+Route::get('/noteInd/{id}/edit-step1', [\App\Http\Controllers\noteIndController::class, 'editStep1'])->name('noteind.editstep1');
+Route::post('/noteInd/{id}/edit-step2', [\App\Http\Controllers\noteIndController::class, 'editStep2'])->name('noteind.editstep2');
+Route::post('/noteInd/{id}/update', [\App\Http\Controllers\noteIndController::class, 'update'])->name('noteind.update');
+//Note Kelompok
 Route::resource('/noteKel', App\Http\Controllers\noteKelController::class)->except(['show']);
 Route::get('noteInd/printPdf', [\App\Http\Controllers\noteIndController::class, 'cetak_pdf'])->name('noteInd.printPdf');
 Route::get('noteKel/destroy/{id}', [App\Http\Controllers\noteKelController::class, 'destroy'])->name('noteKel.destroy');
 Route::get('noteKel/printPdf', [\App\Http\Controllers\noteKelController::class, 'cetak_pdf'])->name('notekel.printPdf');
+// Prestasi
 Route::resource('/prestasi', App\Http\Controllers\prestasiController::class)->except(['show']);
 Route::get('prestasi/printPdf', [\App\Http\Controllers\prestasiController::class, 'cetak_pdf'])->name('prestasi.printPdf');
 Route::get('/prestasi/destroy/{id}', [App\Http\Controllers\prestasiController::class, 'destroy'])->name('prestasi.destroy');
+// Kasus
 Route::resource('/kasus', App\Http\Controllers\kasusController::class)->except(['show']);
 Route::get('/kasus/destroy/{id}', [App\Http\Controllers\kasusController::class, 'destroy'])->name('kasus.destroy');
 Route::get('kasus/printPdf', [\App\Http\Controllers\kasusController::class, 'cetak_pdf'])->name('kasus.printPdf');
@@ -114,10 +123,5 @@ Route::get('students/printPrestasi/{id}', [\App\Http\Controllers\StudentsControl
 Route::get('students/printKasus/{id}', [\App\Http\Controllers\StudentsController::class, 'cetakKasus'])->name('students.printK');
 Route::get('students/import-students', [App\Http\Controllers\StudentsController::class,'importStudents'])->name('students.import');
 Route::post('students/upload-students', [App\Http\Controllers\StudentsController::class,'uploadStudents'])->name('students.upload');
-
-
-
-Route::get('users', [App\Http\Controllers\SessionsController::class, 'index'])->name('users.index');
-Route::resource('/user', \App\Http\Controllers\SessionsController::class);
 
 

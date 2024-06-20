@@ -31,7 +31,6 @@ class noteIndController extends Controller
         $students = Students::all(); // Mengambil semua data siswa
         return view('noteInd.step1', compact('students'));
     }
-
     public function showStep2(Request $request)
     {
         $notes = ModelsNoteIndividu::all();
@@ -51,6 +50,7 @@ class noteIndController extends Controller
             'isNew'                 => 'required',
             'jenisKonseling'        => 'required',
             'tglKonseling'          => 'required',
+            'deskripsiUmum'         => 'required',
             'deskripsiMasalah'      => 'required',
             'tindakan'              => 'required',
             'catatan'               => 'required',
@@ -63,25 +63,34 @@ class noteIndController extends Controller
 
         return redirect()->route('noteInd.index');
     }
-    public function edit(string $id): View
+    public function editStep1($id)
     {
-        //get post by ID
+        $note = ModelsNoteIndividu::findOrFail($id);
         $students = Students::all();
-        $notes = ModelsNoteIndividu::findOrFail($id);
-
-        //render view with post
-        return view('noteInd.edit', compact('students', 'notes'));
+        return view('noteInd.editStep1', compact('note', 'students'));
     }
+    public function editStep2(Request $request, $id)
+    {
+        $note = ModelsNoteIndividu::findOrFail($id);
+        $studentId = $request->input('students_id');
+        $student = Students::get()->where('NISN', $studentId);
+        $previousNotes = ModelsNoteIndividu::where('students_id', $studentId)->orderBy('tglKonseling', 'desc')->get();
+        
+        return view('noteInd.editStep2', compact('student', 'previousNotes', 'note','studentId'));
+    }
+
+
     public function update(Request $request, $id): RedirectResponse
     {
         //validate form
-        $this->validate($request, [
+        $attributes = $request->validate([
             'user_id'               => 'required',
             'students_id'           => 'required',
             'konselingSebelumnya'   => 'required',
             'isNew'                 => 'required',
             'jenisKonseling'        => 'required',
             'tglKonseling'          => 'required',
+            'deskripsiUmum'         => 'required',
             'deskripsiMasalah'      => 'required',
             'tindakan'              => 'required',
             'catatan'               => 'required',
@@ -94,20 +103,7 @@ class noteIndController extends Controller
         $notes = ModelsNoteIndividu::findOrFail($id);
 
             //update post without image
-            $notes->update([
-                'user_id'               => $request->user_id,
-                'students_id'           => $request->students_id,
-                'konselingSebelumnya'   => $request->konselingSebelumnya,
-                'isNew'                 => $request->isNew,
-                'jenisKonseling'        => $request->jenisKonseling,
-                'tglKonseling'          => $request->tglKonseling,
-                'deskripsiMasalah'      => $request->deskripsiMasalah,
-                'tindakan'              => $request->tindakan,
-                'catatan'               => $request->catatan,
-                'rencanaTindakLanjut'   => $request->rencanaTindakLanjut,
-                'tglRTL'                => $request->tglRTL,
-                'status'                => $request->status
-        ]);
+            $notes->update($attributes);
         //redirect to index
         return redirect()->route('noteInd.index');
     }

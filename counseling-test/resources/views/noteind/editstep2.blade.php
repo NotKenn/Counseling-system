@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <form action="{{route('noteind.submit')}}" method="POST">
+            <form action="{{route('noteind.update', $note->id)}}" method="POST">
                 @csrf
 
                 <div class="card">
@@ -37,7 +37,7 @@
  
                             <div class="form-group">
                                 <label>Siswa</label>
-                            <select type="text" class="form-control" id="students_id" name="students_id">
+                            <select type="text"  class="form-control" id="students_id" name="students_id">
                                 @foreach ($student as $stud)
                                     <option value ={{$stud->NISN}}> {{$stud->Nama}} </option>
                                 @endforeach

@@ -17,7 +17,7 @@
     }
 	</style>
 	<center>
-		<h5>Laporan Prestasi</h4>
+		<h5>Laporan Kasus</h4>
 	</center>
 
 	<div class="card border-0 shadow-sm rounded">

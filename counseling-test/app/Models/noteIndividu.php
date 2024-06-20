@@ -18,6 +18,7 @@ class noteIndividu extends Model
         'isNew',
         'jenisKonseling',
         'tglKonseling',
+        'deskripsiUmum',
         'deskripsiMasalah',
         'tindakan',
         'catatan',
