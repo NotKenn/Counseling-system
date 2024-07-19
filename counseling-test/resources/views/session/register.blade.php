@@ -41,6 +41,7 @@
                 <div class="mb-3">
                     <select type="text" class="form-control" placeholder="Role" name="role" id="role" aria-label="role">
                         <option value ="Admin"> Admin </option>
+                        <option value ="Konselor"> Konselor </option>
                         <option value ="User"> Konselor </option>
                     </select>
                     @error('role')
